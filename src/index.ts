@@ -111,8 +111,5 @@ app.use('/', messageRouter)
 app.use('/', blogRouter)
 app.use('/', commentRouter)
 
-
-
-
 export default app
 
