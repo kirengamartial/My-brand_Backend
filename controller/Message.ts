@@ -85,6 +85,7 @@ const messageSchema = Joi.object({
     next();
   };
   
+  
   export const createContact = async(req: Request, res: Response) => {
     try {
       const transporter = nodemailer.createTransport({
