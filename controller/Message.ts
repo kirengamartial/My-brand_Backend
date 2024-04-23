@@ -107,6 +107,7 @@ const messageSchema = Joi.object({
           <p><strong>Description:</strong> ${description}</p>
           `
         }
+        
         transporter.sendMail(mailOptions, async(err, info) => {
            if(err){
             res.status(400).json(err)
