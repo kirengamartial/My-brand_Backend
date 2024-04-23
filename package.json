@@ -45,6 +45,7 @@
     "@types/jsonwebtoken": "^9.0.6",
     "@types/mongoose": "^5.11.97",
     "@types/multer": "^1.4.11",
+    "@types/nodemailer": "^6.4.14",
     "@types/sinon": "^17.0.3",
     "@types/validator": "^13.11.9",
     "bcrypt": "^5.1.1",
@@ -57,6 +58,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.2.3",
     "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.13",
     "sinon": "^17.0.1",
     "swagger-ui-express": "^5.0.0",
     "validator": "^13.11.0"

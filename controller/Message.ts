@@ -1,7 +1,7 @@
 import Joi from 'joi';
 import Message from '../model/Message.js'
 import {Request, Response, NextFunction} from "express";
-
+import nodemailer from 'nodemailer'
 
 
 
@@ -87,12 +87,42 @@ const messageSchema = Joi.object({
   
   export const createContact = async(req: Request, res: Response) => {
     try {
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASSWORD
+        }
+      })
+      
         const { name, email, question, description } = req.body
-        const message = new Message({name, email, question, description})
-        await message.save()
-        res.status(200).json({message: message})
+        const mailOptions = {
+          from: `${email}`,
+          to: `${process.env.EMAIL_USER}`,
+          subject: "Portfolio Contact Message",
+          text: `
+          <b>Name: </b>${name}
+          <br>
+          <b>Email: </b>${email}
+          <br>
+          <b>Question: </b>${question}
+          <br>
+          <b>Description: </b>${description}
+          
+          `
+        }
+        transporter.sendMail(mailOptions, async(err, info) => {
+           if(err){
+            res.status(400).json(err)
+           }else {
+            const message = new Message({name, email, question, description})
+                  await message.save()
+                  res.status(200).json({message: message})
+           }
+        })
+        
     } catch (error) {
-        res.status(400).json({ error: 'An error occurred while sending a message' });
+        res.status(500).json({ error: 'An error occurred while sending a message' });
     }
   }
 
