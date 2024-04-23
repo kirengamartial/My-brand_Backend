@@ -90,7 +90,7 @@ const messageSchema = Joi.object({
         const { name, email, question, description } = req.body
         const message = new Message({name, email, question, description})
         await message.save()
-        res.status(200).json({message: 'message sent successfully', messages: message})
+        res.status(200).json({message: message})
     } catch (error) {
         res.status(400).json({ error: 'An error occurred while sending a message' });
     }
