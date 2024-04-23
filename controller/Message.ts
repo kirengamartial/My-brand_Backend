@@ -84,7 +84,7 @@ const messageSchema = Joi.object({
     }
     next();
   };
-  
+
   
   export const createContact = async(req: Request, res: Response) => {
     try {
@@ -98,18 +98,14 @@ const messageSchema = Joi.object({
       
         const { name, email, question, description } = req.body
         const mailOptions = {
-          from: `${email}`,
+          from: email,
           to: `${process.env.EMAIL_USER}`,
           subject: "Portfolio Contact Message",
-          text: `
-          <b>Name: </b>${name}
-          <br>
-          <b>Email: </b>${email}
-          <br>
-          <b>Question: </b>${question}
-          <br>
-          <b>Description: </b>${description}
-          
+          html: `
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Question:</strong> ${question}</p>
+          <p><strong>Description:</strong> ${description}</p>
           `
         }
         transporter.sendMail(mailOptions, async(err, info) => {
