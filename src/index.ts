@@ -17,7 +17,6 @@ import messageRouter from '../routes/Message.js'
 import blogRouter from '../routes/Blog.js'
 import commentRouter from '../routes/Comment.js'
 
-
 const app = express()
 app.use(express.json())
 app.use(cors({
