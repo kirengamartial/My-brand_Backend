@@ -106,7 +106,7 @@ mongoose.connect(process.env.MONGODB_URL!)
 app.get('*', checkUser);
 
 // app.use('/', htmlRouter)
-app.get('/', (req, res) => res.send('Api runnint... '))
+app.get('/', (req, res) => res.send('Api running... '))
 app.use('/', userRouter)
 app.use('/', messageRouter)
 app.use('/', blogRouter)
