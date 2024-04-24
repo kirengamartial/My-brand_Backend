@@ -32,7 +32,7 @@ jobs:
       - run:
           name: Deploy to Render
           command: |
-            curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer ${RENDER_API_KEY}" -d '{"branch":"main"}' https://api.render.com/deploy/srv-coh8lv779t8c73fv39e0?key=${RENDER_DEPLOY_HOOK}
+            curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_KFL0gfdDuz19qLTXANmEh6sz2a8n/5lbUS26NeZ
 workflows:
   version: 2
   build-test-and-deploy:
