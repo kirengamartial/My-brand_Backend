@@ -9,7 +9,8 @@
     "test:coverage": "nyc --reporter=text npm run test",
     "test": "mocha --timeout 10000 dist/src/test.js",
     "build-ts": "tsc",
-    "build": "npm install && npm run build-ts"
+    "build": "npm install && npm run build-ts",
+    "vercel-build": "echo hello"
   },
   "keywords": [],
   "author": "",
