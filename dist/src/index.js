@@ -94,6 +94,7 @@ mongoose.connect(process.env.MONGODB_URL)
     .catch(error => console.log('Error connecting to database', error));
 app.get('*', checkUser);
 // app.use('/', htmlRouter)
+app.get('/', (req, res) => res.send('Api runnint... '));
 app.use('/', userRouter);
 app.use('/', messageRouter);
 app.use('/', blogRouter);
