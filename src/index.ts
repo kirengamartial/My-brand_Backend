@@ -26,7 +26,6 @@ app.use(cors({
 }))
 app.use(cookieParser())
 
-
 const options = {
   definition: {
     openapi: "3.0.0",
