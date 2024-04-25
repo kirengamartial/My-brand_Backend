@@ -96,7 +96,6 @@ const options = {
     },
 
   },
-  
   apis: ["./dist/controller/*.js"]
 };
 const spacs = swaggerJSDoc(options)
