@@ -20,7 +20,7 @@ import commentRouter from '../routes/Comment.js'
 const app = express()
 app.use(express.json())
 app.use(cors({
-  origin: 'https://kirengamartial.github.io',
+  origin: ['https://kirengamartial.github.io', 'https://my-brand-backend-flax.vercel.app', 'https://my-brand-backend-h88y.onrender.com'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }))
