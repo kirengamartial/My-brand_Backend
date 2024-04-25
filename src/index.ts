@@ -81,11 +81,22 @@ const options = {
               type: "boolean"
             }
           },
-          required: ["username", "email", "password"]
+          required: ["username", "email", "password"],
+          
+        },
+        
+      },
+      securitySchemes: {
+        bearerAuth:{
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "jwt"
         }
       }
-    }
+    },
+
   },
+  
   apis: ["./dist/controller/*.js"]
 };
 const spacs = swaggerJSDoc(options)
